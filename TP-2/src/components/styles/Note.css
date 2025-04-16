@@ -1,0 +1,224 @@
+.note {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding: 10px 30px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    background-color: var(--main-text-color);
+    color: var(--secondary-text-color);
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px var(--third-text-color);
+    font-size: 1rem;
+    opacity: 1;
+    transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    gap: 20px;
+    animation: slide-down 0.3s ease-in-out;
+}
+
+.fade-out {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.fade-in {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.note:not(.fade-in) {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.note > p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.note:hover {
+    box-shadow: 0px 0px 0px var(--third-text-color);
+}
+
+.note-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.note-buttons > button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    color: var(--main-text-color);
+    background-color: var(--button-color);
+    box-sizing: content-box;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.note-buttons > .count-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    color: var(--main-text-color);
+    background-color: var(--button-color);
+    box-sizing: content-box;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.note-buttons > .count-button:hover {
+    background-color: var(--third-text-color);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.note-buttons > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.note-edit-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: auto;
+}
+
+.note-edit-input {
+    display: inline-block;
+    resize: none;
+    overflow: hidden;
+    padding: 10px;
+    font-size: 1rem;
+    color: var(--secondary-text-color);
+    background-color: var(--main-text-color);
+    border: 2px solid var(--third-text-color);
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    outline: none;
+    transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-sizing: border-box;
+    width: 100%;
+}i
+
+.note-edit-input:focus {
+    border: 2px solid var(--secondary-background-color);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.note-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.note-content input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--third-text-color);
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.note-content input[type="checkbox"]:checked {
+    background-color: var(--third-text-color);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.purchased {
+    text-decoration: line-through;
+    color: gray;
+    animation: slide-up 0.3s ease-in-out;
+}
+
+@keyframes slide-down {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.note-quantity {
+    width: 50px;
+    padding: 5px;
+    font-size: 1rem;
+    text-align: center;
+    border: 2px solid var(--third-text-color);
+    border-radius: 50px;
+    outline: none;
+    transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    appearance: auto;
+}
+
+.note-quantity:focus {
+    border: 2px solid var(--secondary-background-color);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+.note-quantity::-webkit-inner-spin-button,
+.note-quantity::-webkit-outer-spin-button {
+    -webkit-appearance: auto;
+    margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .note {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .note-content {
+        width: 100%;
+    }
+
+    .note-buttons {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+
