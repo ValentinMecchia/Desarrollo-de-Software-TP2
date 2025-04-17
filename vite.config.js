@@ -7,5 +7,10 @@ export default defineConfig({
   server: {
     host: true,
     port: 5173,
+    allowedHosts: [
+      'localhost',
+      '.localhost',
+      'desarrollo-de-software-tp2.onrender.com'
+    ]
   },
 })
